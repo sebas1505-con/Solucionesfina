@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import FloatingButtons from "../components/FloatingButtons";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -9,13 +10,13 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rosalind-precrucial-steven.ngrok-free.dev"),
+  metadataBase: new URL("https://solucionesfinancierasvyd.com"),
   title: "Soluciones Financieras V&D · Asesoría Financiera",
-  description: "Créditos, seguros. Consulta inicial gratuita. Más de 3.000 clientes satisfechos. Te asesoramos desde cualquier lugar de Colombia.",
+  description: "Créditos, seguros y planeación patrimonial. Consulta inicial gratuita. Más de 3.000 clientes satisfechos. Te asesoramos desde cualquier lugar de Colombia.",
   openGraph: {
     title: "Soluciones Financieras V&D · Asesoría Financiera",
     description: "Créditos, seguros y planeación patrimonial. Consulta inicial gratuita. Más de 3.000 clientes satisfechos. Te asesoramos desde cualquier lugar de Colombia.",
-    url: "https://rosalind-precrucial-steven.ngrok-free.dev",
+    url: "https://solucionesfinancierasvyd.com",
     type: "website",
     locale: "es_CO",
     siteName: "Soluciones Financieras V&D",
@@ -42,6 +43,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${geistSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col" style={{ backgroundColor: "#0d0d0d" }}>
+        <GoogleTagManager gtmId="GTM-5CTJZMV6" />
         {children}
         <FloatingButtons />
       </body>

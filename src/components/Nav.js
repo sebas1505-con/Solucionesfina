@@ -1,10 +1,16 @@
 "use client";
+import { useEffect } from "react";
+
+function closeMenu() {
+  const cb = document.getElementById("nav-cb");
+  if (cb) cb.checked = false;
+}
 
 const WHATSAPP = "https://wa.me/573003184262?text=Hola%2C%20quiero%20m%C3%A1s%20asesor%C3%ADa%2C%20vengo%20desde%20la%20web%20de%20Soluciones%20Financieras%20V%26D%20%F0%9F%92%BC";
 
 const links = [
   { label: "Inicio",        href: "/" },
-  { label: "Inmobiliaria",  href: "/#inmobiliaria" },
+  { label: "Inmobiliaria",  href: "/inmobiliaria" },
   { label: "Nosotros",      href: "/#nosotros" },
   { label: "Contacto",      href: "/#contacto" },
 ];
@@ -17,6 +23,11 @@ const serviciosDropdown = [
 ];
 
 export default function Nav() {
+  useEffect(() => {
+    window.addEventListener("hashchange", closeMenu);
+    return () => window.removeEventListener("hashchange", closeMenu);
+  }, []);
+
   return (
     <nav className="sticky top-0 z-50" style={{ backgroundColor: "#0d0d0d", borderBottom: "1px solid rgba(201,168,76,0.15)" }}>
 
@@ -126,6 +137,7 @@ export default function Nav() {
             <a
               key={link.href}
               href={link.href}
+              onClick={closeMenu}
               className="py-3 px-4 rounded-xl text-sm font-medium transition-all duration-150"
               style={{ color: "rgba(255,255,255,0.7)" }}
             >
@@ -141,6 +153,7 @@ export default function Nav() {
                 <a
                   key={s.href}
                   href={s.href}
+                  onClick={closeMenu}
                   className="py-2 px-3 text-sm transition-colors hover:text-white"
                   style={{ color: "rgba(255,255,255,0.55)" }}
                 >
