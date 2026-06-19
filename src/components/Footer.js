@@ -16,6 +16,7 @@ const serviciosLinks = [
   { label: "Seguros",                href: "/servicios/seguros" },
   { label: "Asesoría Financiera",    href: "/servicios/asesoria-empresarial" },
   { label: "Pensiones y Retiro",     href: "/servicios/pensiones-retiro" },
+  { label: "Asesoría Jurídica",      href: "/servicios/juridico" },
 ];
 
 const secciones = [

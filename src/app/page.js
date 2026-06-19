@@ -51,6 +51,16 @@ const servicios = [
     titulo: "Pensiones y Retiro",
     desc: "Planifica tu futuro con alternativas de retiro que garanticen tu tranquilidad y calidad de vida.",
   },
+  {
+    href: "/servicios/juridico",
+    svg: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"/>
+      </svg>
+    ),
+    titulo: "Asesoría Jurídica",
+    desc: "Protegemos tus intereses con asesoría legal en derecho financiero, inmobiliario y comercial.",
+  },
 ];
 
 const stats = [
@@ -95,6 +105,7 @@ const oficinas = [
 const galeriaImagenes = [
   "/galeria/imagen-1.png",
   "/galeria/imagen-2.png",
+  "/galeria/imagen-3.png",
 ];
 
 const testimonios = [
@@ -235,6 +246,7 @@ export default function Home() {
                   { icon: "🏠", titulo: "Compra",         desc: "Te acompañamos en todo el proceso para que encuentres y adquieras la propiedad ideal." },
                   { icon: "📋", titulo: "Avalúos",        desc: "Valoración profesional de tu inmueble con respaldo técnico." },
                   { icon: "🏗️", titulo: "Proyectos",      desc: "Acceso a proyectos de vivienda nueva con financiación." },
+                  { icon: "🔑", titulo: "tu propiedad", desc: "Te ayudamos a vender tu apartamento o casa." },
                 ].map((item) => (
                   <div key={item.titulo} className="flex items-start gap-3 p-4 rounded-xl" style={{ backgroundColor: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,168,76,0.12)" }}>
                     <span className="text-xl flex-shrink-0">{item.icon}</span>
@@ -470,7 +482,7 @@ export default function Home() {
         </div>
 
         {/* Grid estático — 2 columnas en móvil, adaptable en desktop */}
-        <div className="px-4 sm:px-6 grid grid-cols-2 gap-4 sm:max-w-xl sm:mx-auto">
+        <div className="px-4 sm:px-6 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-6xl mx-auto">
           {galeriaImagenes.map((src, i) => (
             <button
               key={i}
@@ -487,6 +499,20 @@ export default function Home() {
               </div>
             </button>
           ))}
+
+          {/* Video testimonio */}
+          <div
+            className="rounded-2xl overflow-hidden relative"
+            style={{ border: "1px solid rgba(201,168,76,0.25)", aspectRatio: "4/3" }}
+          >
+            <video
+              src="https://sebastian14.sirv.com/joyeria/testimonio.mp4"
+              className="w-full h-full object-cover"
+              controls
+              playsInline
+              preload="metadata"
+            />
+          </div>
         </div>
       </section>
 
@@ -588,22 +614,22 @@ export default function Home() {
       {lightbox && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ backgroundColor: "rgba(0,0,0,0.88)", backdropFilter: "blur(6px)" }}
+          style={{ backgroundColor: "rgba(0,0,0,0.92)", backdropFilter: "blur(6px)" }}
           onClick={cerrarLightbox}
         >
           <button
             onClick={cerrarLightbox}
-            className="absolute top-5 right-5 w-10 h-10 flex items-center justify-center rounded-full transition-all hover:scale-110"
-            style={{ backgroundColor: "rgba(201,168,76,0.15)", border: "1px solid rgba(201,168,76,0.4)", color: "#C9A84C" }}
+            className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center rounded-full transition-all active:scale-95"
+            style={{ backgroundColor: "rgba(201,168,76,0.2)", border: "1px solid rgba(201,168,76,0.5)", color: "#C9A84C", touchAction: "manipulation" }}
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
             </svg>
           </button>
           <img
             src={lightbox}
             alt=""
-            className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl"
+            className="max-w-full max-h-[85vh] rounded-2xl shadow-2xl"
             style={{ border: "1px solid rgba(201,168,76,0.3)" }}
             onClick={(e) => e.stopPropagation()}
           />
