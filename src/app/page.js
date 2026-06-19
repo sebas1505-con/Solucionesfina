@@ -511,6 +511,7 @@ export default function Home() {
               controls
               playsInline
               preload="metadata"
+              style={{ backgroundColor: "#000" }}
             />
           </div>
         </div>
